@@ -1,21 +1,22 @@
 import React from 'react';
+import {Div, Span} from '../styled'
 
-function DisplayComponent(props) {
+const Display = props => {
   const h = () => {
      if(props.time.h === 0){
        return '';
-     }else {
-       return <span>{(props.time.h >= 10)? props.time.h : "0"+ props.time.h}</span>;
+     } else {
+       return <Span>{(props.time.h >= 10)? props.time.h : "0"+ props.time.h}</Span>;
      }
   }
   return (
-    <div>
+    <Div>
        {h()}&nbsp;&nbsp;
-       <span>{(props.time.m >= 10)? props.time.m : "0"+ props.time.m}</span>&nbsp;:&nbsp;
-       <span>{(props.time.s >= 10)? props.time.s : "0"+ props.time.s}</span>&nbsp;:&nbsp;
-       <span>{(props.time.ms >= 10)? props.time.ms : "0"+ props.time.ms}</span>
-    </div>
+       <Span>{(props.time.m >= 10)? props.time.m : "0"+ props.time.m}</Span>&nbsp;:&nbsp;
+       <Span>{(props.time.s >= 10)? props.time.s : "0"+ props.time.s}</Span>&nbsp;:&nbsp;
+       <Span>{(props.time.ms >= 10)? props.time.ms : "0"+ props.time.ms}</Span>
+    </Div>
   );
 }
 
-export default DisplayComponent;
+export default Display;

@@ -1,7 +1,18 @@
 import React, {useState} from 'react';
-import DisplayComponent from '../../components/Display';
-import BtnComponent from '../../components/Button';
-import '../../assets/css/style.css';
+import {
+  Button,
+  Display
+} from "../../components"
+import {
+  Section,
+  Container,
+  DivTitle,
+  Title,
+  DivTime,
+  GlobalStyle 
+} from './styled'
+import theme from "../../utility/theme"
+import texts from "../../utility/texts"
 
 function Main() {
   const [time, setTime] = useState({ms:0, s:0, m:0, h:0});
@@ -48,17 +59,20 @@ function Main() {
 
 
   return (
-    <div className="main-section">
-     <div className="clock-holder">
-          <div style={{textAlign: 'center'}}>
-            <h2>Cronomêtro - React</h2>
-          </div>
-          <div className="stopwatch">
-               <DisplayComponent time={time}/>
-               <BtnComponent status={status} resume={resume} reset={reset} stop={stop} start={start}/>
-          </div>
-     </div>
-    </div>
+    <>
+      <GlobalStyle />
+        <Section>
+          <Container>
+              <DivTitle>
+                  <Title color={theme.threeColor}>{texts.titleTime}</Title>
+              </DivTitle>
+              <DivTime>
+                  <Display time={time}/>
+                  <Button status={status} resume={resume} reset={reset} stop={stop} start={start}/>
+              </DivTime>
+          </Container>
+        </Section>
+      </>
   );
 }
 

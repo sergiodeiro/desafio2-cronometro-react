@@ -1,33 +1,69 @@
 import React from 'react';
+import {Div, Buttons} from '../styled'
+import theme from "../../utility/theme"
+import texts from "../../utility/texts"
 
-function BtnComponent(props) {
+const Button = (props) => {
   return (
-    <div>
+    <Div>
       {(props.status === 0)? 
-        <button className="stopwatch-btn stopwatch-btn-gre"
-        onClick={props.start}>Iniciar</button> : ""
+          <Buttons 
+            borderColor={theme.fourthColor}
+            backColor={theme.threeColor}
+            hoverColor={theme.threeColor}
+            hoverBack={theme.fourthColor}
+            onClick={props.start}>
+              {texts.start}
+          </Buttons> 
+        : null
       }
 
       {(props.status === 1)? 
-        <div>
-          <button className="stopwatch-btn stopwatch-btn-red"
-                  onClick={props.stop}>Parar</button>
-          <button className="stopwatch-btn stopwatch-btn-yel"
-                  onClick={props.reset}>Reiniciar</button>
-        </div> : ""
+          <Div>
+            <Buttons 
+              borderColor={theme.primaryColor}
+              backColor={theme.threeColor}
+              hoverColor={theme.threeColor}
+              hoverBack={theme.primaryColor}
+              onClick={props.stop}> 
+                {texts.stop}
+            </Buttons>
+            <Buttons 
+              borderColor={theme.secondColor}
+              backColor={theme.threeColor}
+              hoverColor={theme.threeColor}
+              hoverBack={theme.secondColor}
+              onClick={props.reset}>
+                {texts.reset}
+             </Buttons>
+          </Div> 
+        : null
       }
 
      {(props.status === 2)? 
-        <div>
-          <button className="stopwatch-btn stopwatch-btn-gre"
-                  onClick={props.resume}>Continuar</button>
-          <button className="stopwatch-btn stopwatch-btn-yel"
-                  onClick={props.reset}>Reiniciar</button>
-        </div> : ""
+          <Div>
+            <Buttons 
+              borderColor={theme.fiveColor}
+              backColor={theme.threeColor}
+              hoverColor={theme.threeColor}
+              hoverBack={theme.fiveColor}
+                onClick={props.resume}>
+                  {texts.resume}
+            </Buttons>
+            <Buttons 
+              borderColor={theme.secondColor}
+              backColor={theme.threeColor}
+              hoverColor={theme.threeColor}
+              hoverBack={theme.secondColor}
+              onClick={props.reset}>
+                {texts.reset}
+            </Buttons>
+          </Div> 
+        : null
       }
      
-    </div>
+    </Div>
   );
 }
 
-export default BtnComponent;
+export default Button;

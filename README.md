@@ -1,8 +1,12 @@
-Cronometro - React
+Desafio 2 - Cronometro - React
 
-Desafio da Unifacs em fazer um cronometro - Desafio 2
+Desafio da Unifacs
 
 ## Rodar o Projeto
+
+#### Nesse Projeto foi utilizado : Yarn + Styled-Componentes
+Primeira Version: CSS + HTML
+Segunda Version: CSS-JS
 
 ### `npm install ou yarn`
 
