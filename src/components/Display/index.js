@@ -11,7 +11,7 @@ const Display = props => {
   }
   return (
     <Div>
-       {h()}&nbsp;&nbsp;
+       {h()}&nbsp;:&nbsp;
        <Span>{(props.time.m >= 10)? props.time.m : "0"+ props.time.m}</Span>&nbsp;:&nbsp;
        <Span>{(props.time.s >= 10)? props.time.s : "0"+ props.time.s}</Span>&nbsp;:&nbsp;
        <Span>{(props.time.ms >= 10)? props.time.ms : "0"+ props.time.ms}</Span>
