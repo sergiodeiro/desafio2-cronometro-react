@@ -4,7 +4,7 @@ const texts = {
       reset: 'Reiniciar',
       stop: 'Parar',
       resume: 'Continuar',
-      titleTime: 'Cronomêtro - React',
+      titleTime: 'Cronômetro - React',
     },
   };
   
