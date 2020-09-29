@@ -19,5 +19,5 @@ Abrir [http://localhost:3000](http://localhost:3000) para vê-lo no navegador.
 
 Equipe: 
 
-Sérgio Deiró, Vandeilson Figueiredo, Phillipe Carvalho, Mauricio Lanner
+Sérgio Deiró e Mauricio Lanner
 
