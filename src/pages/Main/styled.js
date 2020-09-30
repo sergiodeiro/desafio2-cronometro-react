@@ -50,3 +50,15 @@ export const Div = styled.div`
   display: flex;
   justify-content: center;
 `
+
+export const Span = styled.span`
+  background:#8257e6;
+  color: #fff;
+  display: inline-block;
+  font-family: monospace;
+  font-size: 22px;
+  padding: 20px;
+  border-radius: 5px;
+  width: 70px;
+  font-style: oblique;
+`

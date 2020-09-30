@@ -11,20 +11,47 @@ import {
   DivTime,
   GlobalStyle , 
   Link,
-  Div
+  Div,
+  Span
 } from './styled'
 import theme from "../../utility/theme"
 import texts from "../../utility/texts"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStopwatch, faClock } from '@fortawesome/free-solid-svg-icons'
+import { faStopwatch, faClock, faHourglassHalf } from '@fortawesome/free-solid-svg-icons'
 import Clock from 'react-live-clock';
-import moment from "moment"
+import Countdown from 'react-countdown';
+
+
 
 function Main() {
   const [time, setTime] = useState({ms:0, s:0, m:0, h:0});
   const [interv, setInterv] = useState();
   const [status, setStatus] = useState(0);
   const [element, setElement] = useState(0);
+
+  const Completionist = () => <Title color={theme.threeColor}>{texts.temporFinality}</Title>;
+
+  const renderer = ({ hours, minutes, seconds, completed }) => {
+    if (completed) {
+      return <Completionist />;
+    } else {
+      return (
+        <>
+          <Span>
+          {hours >= 10 ? hours : "0" + hours}
+          </Span>
+          &nbsp;:&nbsp;
+          <Span>
+            {minutes >= 10 ? minutes : "0" + minutes}
+          </Span>
+          &nbsp;:&nbsp;
+          <Span>
+            {seconds >= 10 ? seconds : "0" + seconds}
+          </Span>
+        </>
+      );
+    }
+  };
 
   const start = () => {
     run();
@@ -84,7 +111,7 @@ function Main() {
                 <Link 
                   onClick={() => setElement(2)}
                 >
-                  <FontAwesomeIcon icon={faStopwatch} style={{fontSize: 39, color: element === 2 ? theme.threeColor : theme.sevenColor}} size="lg" />
+                  <FontAwesomeIcon icon={faHourglassHalf} spin={element === 2 ? true : false} style={{fontSize: 39, color: element === 2 ? theme.threeColor : theme.sevenColor}} size="lg" />
                 </Link>
               </Div>
                 {element === 1 ? (
@@ -105,8 +132,7 @@ function Main() {
                             <Title color={theme.threeColor}>{texts.tempor}</Title>
                         </DivTitle>
                         <DivTime>
-                          <Display time={time}/>
-                          <Button status={status} resume={resume} reset={reset} stop={stop} start={start}/>
+                          <Countdown date={Date.now() + 200000} renderer={renderer} />
                       </DivTime>
                     </>
                   ) : (
@@ -133,7 +159,7 @@ function Main() {
                               ticking={true} 
                             />
                           </Title>
-                          <Title>
+                          <Title color={theme.secondColor}>
                             Asia/Tokyo:
                             <br /> 
                           <Clock

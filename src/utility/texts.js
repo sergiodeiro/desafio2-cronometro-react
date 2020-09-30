@@ -7,6 +7,7 @@ const texts = {
       titleTime: 'Cronômetro - React',
       clock: 'Relógio - React',
       tempor: "Temporizador - React",
+      temporFinality: "Tempo Finalizado !!!"
     },
   };
   
