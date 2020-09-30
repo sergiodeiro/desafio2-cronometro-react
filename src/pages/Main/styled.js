@@ -40,3 +40,13 @@ export const DivTime = styled.div`
     padding: 60px 0px;
     text-align: center;
 `
+
+export const Link = styled.a`
+  cursor: pointer;
+`
+
+export const Div = styled.div`
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+`

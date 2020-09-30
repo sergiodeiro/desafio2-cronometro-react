@@ -1,4 +1,4 @@
-Desafio 2 - Cronometro - React
+Desafio 2 - Cronometro/ Relógio / Temporizador - React
 
 Desafio da Unifacs
 
