@@ -74,12 +74,17 @@ function Main() {
                 <Link 
                   onClick={() => setElement(0)}
                 >
-                  <FontAwesomeIcon style={{fontSize: 40, color: element === 1 ? theme.threeColor : theme.primaryColor}} icon={faClock}  size="lg"/>
+                  <FontAwesomeIcon style={{fontSize: 40, color: element === 0 ? theme.threeColor : theme.sevenColor}} icon={faClock}  size="lg"/>
                 </Link>
                 <Link 
                   onClick={() => setElement(1)}
                 >
-                  <FontAwesomeIcon icon={faStopwatch} style={{fontSize: 39, color: element === 0 ? theme.threeColor : theme.primaryColor}} size="lg" />
+                  <FontAwesomeIcon icon={faStopwatch} style={{fontSize: 39, color: element === 1 ? theme.threeColor : theme.sevenColor}} size="lg" />
+                </Link>
+                <Link 
+                  onClick={() => setElement(2)}
+                >
+                  <FontAwesomeIcon icon={faStopwatch} style={{fontSize: 39, color: element === 2 ? theme.threeColor : theme.sevenColor}} size="lg" />
                 </Link>
               </Div>
                 {element === 1 ? (
@@ -94,72 +99,86 @@ function Main() {
                   </>
                 ) : (
                   <>
-                    <DivTitle>
-                        <Title color={theme.threeColor}>Relógio - React</Title>
-                    </DivTitle>
-                    <DivTitle>
-                        <Title>
-                          Horário Local:
-                          <br /> 
-                         <Clock
-                            format={'HH:mm:ss'}
-                            ticking={true} 
-                          />
-                          <br /> 
-                         <Clock
-                            format={'D'}
-                            ticking={true} 
-                          />
-                          de
+                  {element === 2 ? (
+                    <>
+                        <DivTitle>
+                            <Title color={theme.threeColor}>{texts.tempor}</Title>
+                        </DivTitle>
+                        <DivTime>
+                          <Display time={time}/>
+                          <Button status={status} resume={resume} reset={reset} stop={stop} start={start}/>
+                      </DivTime>
+                    </>
+                  ) : (
+                    <>
+                      <DivTitle>
+                          <Title color={theme.threeColor}>{texts.clock}</Title>
+                      </DivTitle>
+                      <DivTitle>
+                          <Title>
+                            Horário Local:
+                            <br /> 
                           <Clock
-                            format={'HH:mm:ss'}
-                            onChange={date => console.log(moment().format('MMMM'))}
-                            ticking={true} 
-                          />
-                        </Title>
-                        <Title>
-                          Asia/Tokyo:
-                          <br /> 
-                         <Clock
-                            format={'HH:mm:ss'}
-                            ticking={true}
-                            timezone={'Asia/Tokyo'} 
-                          />
-                          <br /> 
-                         <Clock
-                            format={'D'}
-                            ticking={true}
-                            timezone={'Asia/Tokyo'}  
-                          />
-                          de
+                              format={'HH:mm:ss'}
+                              ticking={true} 
+                            />
+                            <br /> 
                           <Clock
-                            format={'MMMM'}
-                            ticking={true}
-                            timezone={'Asia/Tokyo'}  
-                          />
-                        </Title>
-                        <Title>
-                          America/Nova Iorque:
-                          <br /> 
-                         <Clock
-                            format={'HH:mm:ss'}
-                            ticking={true}
-                            timezone={'America/New_York'} 
-                          />
-                          <br /> 
-                         <Clock
-                            format={'D'}
-                            ticking={true}
-                            timezone={'America/New_York'}  
-                          />
-                          de
+                              format={'D'}
+                              ticking={true} 
+                            />
+                            de
+                            <Clock
+                              format={'MMMM'}
+                              ticking={true} 
+                            />
+                          </Title>
+                          <Title>
+                            Asia/Tokyo:
+                            <br /> 
                           <Clock
-                            format={'MMMM'}
-                            ticking={true} 
-                            timezone={'America/New_York'} 
-                          />
-                        </Title>
-                    </DivTitle>
+                              format={'HH:mm:ss'}
+                              ticking={true}
+                              timezone={'Asia/Tokyo'} 
+                            />
+                            <br /> 
+                          <Clock
+                              format={'D'}
+                              ticking={true}
+                              timezone={'Asia/Tokyo'}  
+                            />
+                            de
+                            <Clock
+                              format={'MMMM'}
+                              ticking={true}
+                              timezone={'Asia/Tokyo'}  
+                            />
+                          </Title>
+                          <Title>
+                            America/Nova Iorque:
+                            <br /> 
+                          <Clock
+                              format={'HH:mm:ss'}
+                              ticking={true}
+                              timezone={'America/New_York'} 
+                            />
+                            <br /> 
+                          <Clock
+                              format={'D'}
+                              ticking={true}
+                              timezone={'America/New_York'}  
+                            />
+                            de
+                            <Clock
+                              format={'MMMM'}
+                              ticking={true} 
+                              timezone={'America/New_York'} 
+                            />
+                          </Title>
+                      </DivTitle>
+                    </>
+                    )
+                  }                
                 </>
                 )}
           </Container>

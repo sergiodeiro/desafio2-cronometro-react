@@ -5,6 +5,8 @@ const texts = {
       stop: 'Parar',
       resume: 'Continuar',
       titleTime: 'Cronômetro - React',
+      clock: 'Relógio - React',
+      tempor: "Temporizador - React",
     },
   };
   
