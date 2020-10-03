@@ -36,3 +36,13 @@ export const Span = styled.span`
   width: 70px;
   font-style: oblique;
 `
+
+export const Title = styled.h2`
+    color: ${props => props.color};
+    border-bottom: ${props => props.border ? "2px solid" : null};
+    border-top: ${props => props.borderTop ? "2px solid" : null};
+` 
+
+export const DivTitle = styled.div`
+    text-align: center;
+` 

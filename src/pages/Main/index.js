@@ -18,8 +18,8 @@ import theme from "../../utility/theme"
 import texts from "../../utility/texts"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStopwatch, faClock, faHourglassHalf } from '@fortawesome/free-solid-svg-icons'
-import Clock from 'react-live-clock';
 import Countdown from 'react-countdown';
+import TimeZone from "../../components/TimeZone"
 
 
 
@@ -28,6 +28,7 @@ function Main() {
   const [interv, setInterv] = useState();
   const [status, setStatus] = useState(0);
   const [element, setElement] = useState(0);
+  const [parcial, setParcial] = useState({});
 
   const Completionist = () => <Title color={theme.threeColor}>{texts.temporFinality}</Title>;
 
@@ -81,6 +82,8 @@ function Main() {
   const stop = () => {
     clearInterval(interv);
     setStatus(2);
+    setParcial(time);
+    console.log([time])
   };
 
   const reset = () => {
@@ -122,6 +125,29 @@ function Main() {
                       <DivTime>
                         <Display time={time}/>
                         <Button status={status} resume={resume} reset={reset} stop={stop} start={start}/>
+                        {status === 2 ? (
+                          <>
+                              <Title marginTop="20px">{texts.parcial}</Title>
+                              {time.h > 0 ? (<> {time.h} : </>) : null}
+                              {time.m >= 10 ? time.m : "0" + time.m}:
+                              {time.s >= 10 ? time.s : "0" + time.s}:
+                              {time.ms >= 10 ? time.ms : "0" + time.ms} 
+                          </>
+                        ): (
+                          <>
+                            {parcial && parcial.m !== undefined ? (
+                              <>
+                              <Title marginTop="20px">{texts.parcial}</Title>
+                              {parcial.h > 0 ? (<> {parcial.h} : </>) : null}
+                              {parcial.m >= 10 ? parcial.m : "0" + parcial.m}:
+                              {parcial.s >= 10 ? parcial.s : "0" + parcial.s}:
+                              {parcial.ms >= 10 ? parcial.ms : "0" + parcial.ms}
+                              </>
+                            ) : (
+                              null
+                            )}
+                          </>
+                        )}
                     </DivTime>
                   </>
                 ) : (
@@ -140,68 +166,7 @@ function Main() {
                       <DivTitle>
                           <Title color={theme.threeColor}>{texts.clock}</Title>
                       </DivTitle>
-                      <DivTitle>
-                          <Title>
-                            Horário Local:
-                            <br /> 
-                          <Clock
-                              format={'HH:mm:ss'}
-                              ticking={true} 
-                            />
-                            <br /> 
-                          <Clock
-                              format={'D'}
-                              ticking={true} 
-                            />
-                            de
-                            <Clock
-                              format={'MMMM'}
-                              ticking={true} 
-                            />
-                          </Title>
-                          <Title color={theme.secondColor}>
-                            Asia/Tokyo:
-                            <br /> 
-                          <Clock
-                              format={'HH:mm:ss'}
-                              ticking={true}
-                              timezone={'Asia/Tokyo'} 
-                            />
-                            <br /> 
-                          <Clock
-                              format={'D'}
-                              ticking={true}
-                              timezone={'Asia/Tokyo'}  
-                            />
-                            de
-                            <Clock
-                              format={'MMMM'}
-                              ticking={true}
-                              timezone={'Asia/Tokyo'}  
-                            />
-                          </Title>
-                          <Title>
-                            America/Nova Iorque:
-                            <br /> 
-                          <Clock
-                              format={'HH:mm:ss'}
-                              ticking={true}
-                              timezone={'America/New_York'} 
-                            />
-                            <br /> 
-                          <Clock
-                              format={'D'}
-                              ticking={true}
-                              timezone={'America/New_York'}  
-                            />
-                            de
-                            <Clock
-                              format={'MMMM'}
-                              ticking={true} 
-                              timezone={'America/New_York'} 
-                            />
-                          </Title>
-                      </DivTitle>
+                      <TimeZone />
                     </>
                     )
                   }                

@@ -33,7 +33,10 @@ export const DivTitle = styled.div`
 ` 
 
 export const Title = styled.h2`
-    color: ${props => props.color}
+    color: ${props => props.color};
+    border-bottom: ${props => props.border ? "2px solid" : null};
+    border-top: ${props => props.borderTop ? "2px solid" : null};
+    margin-top: ${props => props.marginTop ? props.marginTop : null};
 ` 
 
 export const DivTime = styled.div`
