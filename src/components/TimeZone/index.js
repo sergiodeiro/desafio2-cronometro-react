@@ -5,9 +5,12 @@ import {
     Title,
   } from '../styled'
   import theme from "../../utility/theme"
+  import moment from "moment"
 
 
 const TimeZone = () => {
+
+    console.log(moment.locale('pt-br'));
 
     return(
         <DivTitle>
