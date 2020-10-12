@@ -63,7 +63,6 @@ function Main() {
   };
 
   const partial = () => {
-    clearInterval(interv);
     setStatus(2);
     setParcial(time);
   };
@@ -113,19 +112,8 @@ function Main() {
                       <Title marginTop="20px">{texts.parcial}</Title>
                     </Div>
                     <Div className="col-md-12 parcial">
-                      <h1>
-                        {time.h > 0 ? (<> {time.h} : </>) : null}
-                        {time.m >= 10 ? time.m : "0" + time.m}:
-                              {time.s >= 10 ? time.s : "0" + time.s}:
-                              {time.ms >= 10 ? time.ms : "0" + time.ms}
-                      </h1>
-                    </Div>
-                  </Div>
-                ) : (
-                    <>
-                      {parcial && parcial.m !== undefined ? (
+                    {parcial && parcial.m !== undefined ? (
                         <>
-                          <Title marginTop="20px">{texts.parcial}</Title>
                           {parcial.h > 0 ? (<> {parcial.h} : </>) : null}
                           {parcial.m >= 10 ? parcial.m : "0" + parcial.m}:
                               {parcial.s >= 10 ? parcial.s : "0" + parcial.s}:
@@ -134,7 +122,10 @@ function Main() {
                       ) : (
                           null
                         )}
-                    </>
+                    </Div>
+                  </Div>
+                ) : (
+                    null
                   )}
               </DivTime>
             </>
