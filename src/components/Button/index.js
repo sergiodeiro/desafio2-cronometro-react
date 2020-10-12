@@ -2,39 +2,29 @@ import React from 'react';
 import {Div, Buttons} from '../styled'
 import theme from "../../utility/theme"
 import texts from "../../utility/texts"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlayCircle, faSyncAlt, faStop } from '@fortawesome/free-solid-svg-icons'
 
 const Button = (props) => {
   return (
     <Div>
       {(props.status === 0)? 
-          <Buttons 
-            borderColor={theme.fourthColor}
-            backColor={theme.threeColor}
-            hoverColor={theme.threeColor}
-            hoverBack={theme.fourthColor}
+          <Buttons className="btn btn-primary btn-redondo" 
             onClick={props.start}>
-              {texts.start}
+              <FontAwesomeIcon icon={faPlayCircle} style={{ fontSize: 40}} size="lg" />
           </Buttons> 
         : null
       }
 
       {(props.status === 1)? 
           <Div>
-            <Buttons 
-              borderColor={theme.primaryColor}
-              backColor={theme.threeColor}
-              hoverColor={theme.threeColor}
-              hoverBack={theme.primaryColor}
+            <Buttons className="btn btn-primary btn-redondo"
               onClick={props.stop}> 
-                {texts.stop}
+               <FontAwesomeIcon icon={faSyncAlt} style={{ fontSize: 40}} size="lg" />
             </Buttons>
-            <Buttons 
-              borderColor={theme.secondColor}
-              backColor={theme.threeColor}
-              hoverColor={theme.threeColor}
-              hoverBack={theme.secondColor}
+            <Buttons className="btn btn-primary btn-redondo"
               onClick={props.reset}>
-                {texts.reset}
+                <FontAwesomeIcon icon={faStop} style={{ fontSize: 40}} size="lg" />
              </Buttons>
           </Div> 
         : null
@@ -42,21 +32,13 @@ const Button = (props) => {
 
      {(props.status === 2)? 
           <Div>
-            <Buttons 
-              borderColor={theme.fiveColor}
-              backColor={theme.threeColor}
-              hoverColor={theme.threeColor}
-              hoverBack={theme.fiveColor}
+            <Buttons className="btn btn-primary btn-redondo"
                 onClick={props.resume}>
-                  {texts.resume}
+                  <FontAwesomeIcon icon={faPlayCircle} style={{ fontSize: 40}} size="lg" />
             </Buttons>
-            <Buttons 
-              borderColor={theme.secondColor}
-              backColor={theme.threeColor}
-              hoverColor={theme.threeColor}
-              hoverBack={theme.secondColor}
+            <Buttons className="btn btn-primary btn-redondo"
               onClick={props.reset}>
-                {texts.reset}
+                <FontAwesomeIcon icon={faStop} style={{ fontSize: 40}} size="lg" />
             </Buttons>
           </Div> 
         : null

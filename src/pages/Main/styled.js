@@ -1,14 +1,13 @@
 import styled,{createGlobalStyle} from 'styled-components'
 
+
 export const GlobalStyle = createGlobalStyle`
   body {
-    background:#121214;
-    font-family: sans-serif;
+    background-image: linear-gradient(90deg, #770c77, #24124E);
+    font-family: 'Roboto Condensed', sans-serif;
   }
 
   * {
-    padding: 5px;
-    margin: 0px;
     box-sizing: border-box;
   }
 `
@@ -23,9 +22,13 @@ export const Section = styled.div`
 
 export const Container = styled.div`
     width: 100%;
-    background: #737380;
+    background-image: linear-gradient(#fff, #E6E7E8);
     margin: 30px auto;
     position: relative;
+    border-radius: 11px;
+    -webkit-box-shadow: -1px -1px 28px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px -1px 28px 5px rgba(0,0,0,0.75);
+    box-shadow: -1px -1px 28px 5px rgba(0,0,0,0.75);
 `
 
 export const DivTitle = styled.div`
@@ -58,7 +61,7 @@ export const Span = styled.span`
   background:#8257e6;
   color: #fff;
   display: inline-block;
-  font-family: monospace;
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: 22px;
   padding: 20px;
   border-radius: 5px;
