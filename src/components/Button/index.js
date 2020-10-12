@@ -35,10 +35,6 @@ const Button = (props) => {
      {(props.status === 2)? 
           <Div>
             <Buttons className="btn btn-primary btn-redondo"
-              onClick={props.partial}>
-                <FontAwesomeIcon icon={faFlag} style={{ fontSize: 40}} size="lg" />
-             </Buttons>
-            <Buttons className="btn btn-primary btn-redondo"
                 onClick={props.resume}>
                   <FontAwesomeIcon icon={faPlayCircle} style={{ fontSize: 40}} size="lg" />
             </Buttons>

@@ -63,8 +63,8 @@ function Main() {
   };
 
   const partial = () => {
-    setStatus(2);
     setParcial(time);
+    setStatus(1);
   };
 
   const reset = () => {
@@ -106,7 +106,7 @@ function Main() {
               <DivTime>
                 <Display time={time} />
                 <Button status={status} resume={resume} reset={reset} stop={stop} start={start} partial={partial} />
-                {status === 2 ? (
+                {status === 1 && parcial.s > 0 ? (
                   <Div className="row">
                     <Div className="col-md-12">
                       <Title marginTop="20px">{texts.parcial}</Title>
