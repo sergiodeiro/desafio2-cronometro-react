@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import {Buttons} from '../styled'
+import { Buttons } from '../styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlayCircle, faSyncAlt, faStop } from '@fortawesome/free-solid-svg-icons'
 
@@ -100,9 +100,11 @@ class Temporizador extends Component {
         if (this.state.countdown) {
             countdown.push(
                 <div className="Cronometro-display" >
-                    <span>{horas}:</span>
-                    <span>{minutos}:</span>
-                    <span>{segundos}</span>
+                    <h1>
+                        <span>{horas}:</span>
+                        <span>{minutos}:</span>
+                        <span>{segundos}</span>
+                    </h1>
                 </div>
             )
         }
@@ -115,7 +117,7 @@ class Temporizador extends Component {
         if (!this.state.countdown) {
             countdownInput.push(
                 <div className="temporizadorInpuntWrapper">
-                    <input className="temporizadorInput"
+                    <input className="temporizadorInput input-timer"
                         maxLength="2"
                         onInput={this.maxLengthCheck}
                         type="number"
@@ -126,7 +128,7 @@ class Temporizador extends Component {
 
                     :
 
-                    <input className="temporizadorInput"
+                    <input className="temporizadorInput input-timer"
                         maxLength="2"
                         onInput={this.maxLengthCheck}
                         type="number"
@@ -137,7 +139,7 @@ class Temporizador extends Component {
 
                     :
 
-                    <input className="temporizadorInput"
+                    <input className="temporizadorInput input-timer"
                         maxLength="2"
                         onInput={this.maxLengthCheck}
                         type="number"
@@ -160,31 +162,31 @@ class Temporizador extends Component {
                 {this.getCountdown()}
 
                 {this.state.timerLigado === false && this.state.timerInicio === 0 && (
-                    <Buttons className="btn btn-primary btn-redondo" 
-                    onClick={this.handleSubmit}>
-                      <FontAwesomeIcon icon={faPlayCircle} style={{ fontSize: 40}} size="lg" />
-                  </Buttons> 
-                )}
-
-                {this.state.timerLigado === true && (
-                  <Buttons className="btn btn-primary btn-redondo"
-                    onClick={this.resetTimer}>
-                    <FontAwesomeIcon icon={faSyncAlt} style={{ fontSize: 40}} size="lg" />
-                   </Buttons>
+                    <Buttons className="btn btn-primary btn-redondo"
+                        onClick={this.handleSubmit}>
+                        <FontAwesomeIcon icon={faPlayCircle} style={{ fontSize: 40 }} size="lg" />
+                    </Buttons>
                 )}
 
                 {this.state.timerLigado === true && (
                     <Buttons className="btn btn-primary btn-redondo"
-                    onClick={this.pararTimer}>
-                      <FontAwesomeIcon icon={faStop} style={{ fontSize: 40}} size="lg" />
-                   </Buttons>
+                        onClick={this.resetTimer}>
+                        <FontAwesomeIcon icon={faSyncAlt} style={{ fontSize: 40 }} size="lg" />
+                    </Buttons>
+                )}
+
+                {this.state.timerLigado === true && (
+                    <Buttons className="btn btn-primary btn-redondo"
+                        onClick={this.pararTimer}>
+                        <FontAwesomeIcon icon={faStop} style={{ fontSize: 40 }} size="lg" />
+                    </Buttons>
                 )}
 
                 {this.state.timerLigado === false && this.state.timerInicio > 0 && (
                     <Buttons className="btn btn-primary btn-redondo"
-                    onClick={this.resetTimer}>
-                      <FontAwesomeIcon icon={faPlayCircle} style={{ fontSize: 40}} size="lg" />
-                   </Buttons>
+                        onClick={this.resetTimer}>
+                        <FontAwesomeIcon icon={faPlayCircle} style={{ fontSize: 40 }} size="lg" />
+                    </Buttons>
                 )}
             </div>
         )
