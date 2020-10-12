@@ -32,28 +32,6 @@ function Main() {
   const [element, setElement] = useState(0);
   const [parcial, setParcial] = useState({});
 
- /*  const Completionist = () => 
-    <Div className="row despertador" color={theme.threeColor}>
-      <Div className="col-md-12">
-        <FontAwesomeIcon icon={faBell} style={{ fontSize: 70 }} size="lg" />
-      </Div>
-      <Div className="col-md-12">
-        <h1>{texts.temporFinality}</h1>
-      </Div>
-    </Div>; */
-/* 
-  const renderer = ({ hours, minutes, seconds, completed }) => {
-    if (completed) {
-      return <Completionist />;
-    } else {
-      return (
-        <Div>
-          <h1>{hours >= 10 ? hours : "0" + hours}:{minutes >= 10 ? minutes : "0" + minutes}:{seconds >= 10 ? seconds : "0" + seconds}</h1>
-        </Div>
-      );
-    }
-  }; */
-
   const start = () => {
     run();
     setStatus(1);
@@ -82,8 +60,12 @@ function Main() {
   const stop = () => {
     clearInterval(interv);
     setStatus(2);
+  };
+
+  const partial = () => {
+    clearInterval(interv);
+    setStatus(2);
     setParcial(time);
-    console.log([time])
   };
 
   const reset = () => {
@@ -124,7 +106,7 @@ function Main() {
               </DivTitle>
               <DivTime>
                 <Display time={time} />
-                <Button status={status} resume={resume} reset={reset} stop={stop} start={start} />
+                <Button status={status} resume={resume} reset={reset} stop={stop} start={start} partial={partial} />
                 {status === 2 ? (
                   <Div className="row">
                     <Div className="col-md-12">

@@ -17,7 +17,7 @@ const Display = props => {
 
   return (
     <Div className="row">
-      <Div style={PonteiroConometro} className="animacao-conometro ponteiro-resposivo"></Div>
+      <Div style={PonteiroConometro} className={`${props.time.ms>0 ? 'animacao-cronometro animacao-cronometro-active' : 'animacao-cronometro'} ponteiro-resposivo`}></Div>
       <Div style={Relogio}>
         <h1><strong>{(props.time.m >= 10) ? props.time.m : "0" + props.time.m}:{(props.time.s >= 10) ? props.time.s : "0" + props.time.s}:{(props.time.ms >= 10) ? props.time.ms : "0" + props.time.ms}</strong></h1>
       </Div>

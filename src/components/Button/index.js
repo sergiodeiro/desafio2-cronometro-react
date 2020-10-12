@@ -1,7 +1,7 @@
 import React from 'react';
 import {Div, Buttons} from '../styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlayCircle, faSyncAlt, faStop } from '@fortawesome/free-solid-svg-icons'
+import { faPlayCircle, faPause, faStop, faFlag } from '@fortawesome/free-solid-svg-icons'
 
 const Button = (props) => {
   return (
@@ -17,8 +17,12 @@ const Button = (props) => {
       {(props.status === 1)? 
           <Div>
             <Buttons className="btn btn-primary btn-redondo"
+              onClick={props.partial}>
+                <FontAwesomeIcon icon={faFlag} style={{ fontSize: 40}} size="lg" />
+             </Buttons>
+            <Buttons className="btn btn-primary btn-redondo"
               onClick={props.stop}> 
-               <FontAwesomeIcon icon={faSyncAlt} style={{ fontSize: 40}} size="lg" />
+               <FontAwesomeIcon icon={faPause} style={{ fontSize: 40}} size="lg" />
             </Buttons>
             <Buttons className="btn btn-primary btn-redondo"
               onClick={props.reset}>

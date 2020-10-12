@@ -53,9 +53,7 @@ const TimeZone = () => {
                     </h4>
                 </Div>
             </Div>
-            <Div className="footer">
-                
-            </Div>
+            <Div className="footer"></Div>
         </Div>
     )
 

@@ -1,7 +1,8 @@
 import React, { Component } from "react"
 import { Buttons } from '../styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlayCircle, faSyncAlt, faStop } from '@fortawesome/free-solid-svg-icons'
+import { faPlayCircle, faPause, faStop, faStar } from '@fortawesome/free-solid-svg-icons'
+import { Div, Relogio, PonteiroConometro } from '../styled'
 
 class Temporizador extends Component {
     constructor() {
@@ -99,13 +100,16 @@ class Temporizador extends Component {
 
         if (this.state.countdown) {
             countdown.push(
-                <div className="Cronometro-display" >
-                    <h1>
-                        <span>{horas}:</span>
-                        <span>{minutos}:</span>
-                        <span>{segundos}</span>
-                    </h1>
-                </div>
+                    <Div key="name" className="row">
+                        <Div style={PonteiroConometro} className={`${this.state.timerLigado === true ? 'animacao-cronometro animacao-cronometro-active' : 'animacao-cronometro'} ponteiro-resposivo`}></Div>
+                            <Div style={Relogio}>
+                            <h1 style={{fontWeight: 'BOLD'}}>
+                                <span>{horas}:</span>
+                                <span>{minutos}:</span>
+                                <span>{segundos}</span>
+                            </h1>
+                            </Div>
+                    </Div>
             )
         }
         return countdown
@@ -116,8 +120,8 @@ class Temporizador extends Component {
 
         if (!this.state.countdown) {
             countdownInput.push(
-                <div className="temporizadorInpuntWrapper">
-                    <input className="temporizadorInput input-timer"
+                <div key="push">
+                    <input className="input-timer"
                         maxLength="2"
                         onInput={this.maxLengthCheck}
                         type="number"
@@ -128,7 +132,7 @@ class Temporizador extends Component {
 
                     :
 
-                    <input className="temporizadorInput input-timer"
+                    <input className="input-timer"
                         maxLength="2"
                         onInput={this.maxLengthCheck}
                         type="number"
@@ -139,7 +143,7 @@ class Temporizador extends Component {
 
                     :
 
-                    <input className="temporizadorInput input-timer"
+                    <input className="input-timer"
                         maxLength="2"
                         onInput={this.maxLengthCheck}
                         type="number"
@@ -170,21 +174,21 @@ class Temporizador extends Component {
 
                 {this.state.timerLigado === true && (
                     <Buttons className="btn btn-primary btn-redondo"
-                        onClick={this.resetTimer}>
-                        <FontAwesomeIcon icon={faSyncAlt} style={{ fontSize: 40 }} size="lg" />
+                        onClick={this.pararTimer}>
+                        <FontAwesomeIcon icon={faPause} style={{ fontSize: 40 }} size="lg" />
                     </Buttons>
                 )}
 
                 {this.state.timerLigado === true && (
                     <Buttons className="btn btn-primary btn-redondo"
-                        onClick={this.pararTimer}>
+                        onClick={this.resetTimer}>
                         <FontAwesomeIcon icon={faStop} style={{ fontSize: 40 }} size="lg" />
                     </Buttons>
                 )}
 
                 {this.state.timerLigado === false && this.state.timerInicio > 0 && (
                     <Buttons className="btn btn-primary btn-redondo"
-                        onClick={this.resetTimer}>
+                        onClick={this.iniciarTimer}>
                         <FontAwesomeIcon icon={faPlayCircle} style={{ fontSize: 40 }} size="lg" />
                     </Buttons>
                 )}

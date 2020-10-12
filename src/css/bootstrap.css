@@ -10291,12 +10291,16 @@ a.text-dark:hover, a.text-dark:focus {
   100% {transform: rotate(360deg)}
 }
 
-.animacao-conometro{
+.animacao-cronometro{
   animation-name: ponteiros;
   animation-duration: 60s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   animation-play-state: paused;
+}
+
+.animacao-cronometro-active{
+  animation-play-state: running !important;
 }
 
 .despertador{
