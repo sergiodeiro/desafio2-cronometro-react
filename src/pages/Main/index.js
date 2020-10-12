@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import {
   Button,
-  Display
+  Display,
+  Temporizador
 } from "../../components"
 import {
   Section,
@@ -12,14 +13,14 @@ import {
   GlobalStyle,
   Link,
   Div,
-  Span
 } from './styled'
 import theme from "../../utility/theme"
 import texts from "../../utility/texts"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStopwatch, faClock, faHourglassHalf, faBell } from '@fortawesome/free-solid-svg-icons'
-import Countdown from 'react-countdown';
+import { faStopwatch, faClock, faHourglassHalf } from '@fortawesome/free-solid-svg-icons'
+//import Countdown from 'react-countdown';
 import TimeZone from "../../components/TimeZone";
+// eslint-disable-next-line
 import styles from '../../css/bootstrap.css';
 
 
@@ -31,7 +32,7 @@ function Main() {
   const [element, setElement] = useState(0);
   const [parcial, setParcial] = useState({});
 
-  const Completionist = () =>
+ /*  const Completionist = () => 
     <Div className="row despertador" color={theme.threeColor}>
       <Div className="col-md-12">
         <FontAwesomeIcon icon={faBell} style={{ fontSize: 70 }} size="lg" />
@@ -39,8 +40,8 @@ function Main() {
       <Div className="col-md-12">
         <h1>{texts.temporFinality}</h1>
       </Div>
-    </Div>;
-
+    </Div>; */
+/* 
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
       return <Completionist />;
@@ -51,7 +52,7 @@ function Main() {
         </Div>
       );
     }
-  };
+  }; */
 
   const start = () => {
     run();
@@ -96,7 +97,6 @@ function Main() {
 
   return (
     <>
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet"></link>
       <GlobalStyle />
       <Section>
         <Container>
@@ -164,7 +164,7 @@ function Main() {
                       <Title color={theme.threeColor}>{texts.tempor}</Title>
                     </DivTitle>
                     <DivTime>
-                      <Countdown date={Date.now() + 5000} renderer={renderer} />
+                      <Temporizador />
                     </DivTime>
                   </>
                 ) : (

@@ -1,7 +1,5 @@
 import React from 'react';
 import {Div, Buttons} from '../styled'
-import theme from "../../utility/theme"
-import texts from "../../utility/texts"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlayCircle, faSyncAlt, faStop } from '@fortawesome/free-solid-svg-icons'
 

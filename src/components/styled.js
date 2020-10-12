@@ -52,6 +52,7 @@ export const DivTitle = styled.div`
 export const Relogio = {
   width: "100%",
   height: "300px",
+  marginBottom: '25px',
   backgroundImage: "url(" + FundoRelogio + ")",
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',

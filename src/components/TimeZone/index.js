@@ -1,13 +1,10 @@
 import React from 'react'
 import Clock from 'react-live-clock';
 import {
-    Title,
     Div,
     Relogio,
-    Divider,
     Ponteiro
 } from '../styled'
-import theme from "../../utility/theme"
 import moment from "moment"
 //Bootstrap
 
