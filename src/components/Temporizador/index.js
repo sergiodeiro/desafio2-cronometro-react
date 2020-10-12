@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Buttons } from '../styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlayCircle, faPause, faStop, faStar } from '@fortawesome/free-solid-svg-icons'
+import { faPlayCircle, faPause, faStop } from '@fortawesome/free-solid-svg-icons'
 import { Div, Relogio, PonteiroConometro } from '../styled'
 
 class Temporizador extends Component {
