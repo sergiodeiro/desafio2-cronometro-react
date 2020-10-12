@@ -104,7 +104,7 @@ function Main() {
                 <Title color={theme.threeColor}>{texts.titleTime}</Title>
               </DivTitle>
               <DivTime>
-                <Display time={time} />
+                <Display status={status} time={time} />
                 <Button status={status} resume={resume} reset={reset} stop={stop} start={start} partial={partial} />
                 {status === 1 && parcial.s > 0 ? (
                   <Div className="row">
